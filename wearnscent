@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আমার ই-কমার্স শপ (Daraz Clone)</title>
+    <style>
+        /* সম্পূর্ণ ওয়েবসাইটের বেসিক ডিজাইন */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        /* হেডার ও নেভিগেশন বার */
+        header {
+            background-color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .top-header {
+            background-color: #f85606; /* দারাজের সিগনেচার কমলা রঙ */
+            color: white;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .search-container {
+            flex: 0.6;
+            display: flex;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+            font-size: 16px;
+        }
+
+        .search-container button {
+            padding: 10px 20px;
+            background-color: #212121;
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .search-container button:hover {
+            background-color: #333;
+        }
+
+        .cart-btn {
+            background: none;
+            border: 2px solid white;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .cart-btn:hover {
+            background-color: white;
+            color: #f85606;
+        }
+
+        /* হিরো ব্যানার সেকশন */
+        .hero-banner {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://picsum.photos/1200/400') no-repeat center center/cover;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .hero-banner h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+
+        /* প্রোডাক্ট সেকশন */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 20px;
+            border-left: 5px solid #f85606;
+            padding-left: 10px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 5px;
+        }
+
+        /* প্রোডাক্ট কার্ড ডিজাইন */
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-title {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 10px;
+            height: 40px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .product-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #f85606;
+            margin-bottom: 15px;
+        }
+
+        .buy-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #f85606;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            margin-top: auto;
+            transition: background 0.2s;
+        }
+
+        .buy-btn:hover {
+            background-color: #d04502;
+        }
+
+        /* ফুটার সেকশন */
+        footer {
+            background-color: #2e2e2e;
+            color: #bbb;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="top-header">
+            <div class="logo">আমার-বাজার 🛍️</div>
+            <div class="search-container">
+                <input type="text" placeholder="দারাজের মতো পণ্য খুঁজুন এখানে...">
+                <button>সার্চ</button>
+            </div>
+            <button class="cart-btn">কার্ট (০)</button>
+        </div>
+    </header>
+
+    <section class="hero-banner">
+        <h1>আজকের ধামাকা অফার!</h1>
+        <p>সব পণ্যের ওপর ৫০% পর্যন্ত নিশ্চিত মূল্যছাড়।</p>
+    </section>
+
+    <main class="container">
+        <h2 class="section-title">জনপ্রিয় প্রোডাক্টসমূহ</h2>
+        
+        <div class="product-grid">
+            
+            <div class="product-card">
+                <img src="https://picsum.photos/300/300?random=1" alt="Product 1" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">স্মার্ট ওয়াচ আল্ট্রা - ওয়াটারপ্রুফ ফিটনেস ট্র্যাকার</h3>
+                    <p class="product-price">৳ ২,৪৯৯</p>
+                    <button class="buy-btn" onclick="alert('পণ্যটি কার্টে যোগ হয়েছে!')">Buy Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://picsum.photos/300/300?random=2" alt="Product 2" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">প্রিমিয়াম কোয়ালিটি ওয়ারলেস হেডফোন (Extra Bass)</h3>
+                    <p class="product-price">৳ ১,৮50</p>
+                    <button class="buy-btn" onclick="alert('পণ্যটি কার্টে যোগ হয়েছে!')">Buy Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://picsum.photos/300/300?random=3" alt="Product 3" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">লেদার ওয়ালেট ও বেল্ট কম্বো সেট ফর মেন</h3>
+                    <p class="product-price">৳ ৯৯৯</p>
+                    <button class="buy-btn" onclick="alert('পণ্যটি কার্টে যোগ হয়েছে!')">Buy Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://picsum.photos/300/300?random=4" alt="Product 4" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">স্টাইলিশ ট্রাভেল ব্যাকপ্যাক (Water Resistant)</h3>
+                    <p class="product-price">৳ ১,২০০</p>
+                    <button class="buy-btn" onclick="alert('পণ্যটি কার্টে যোগ হয়েছে!')">Buy Now</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; ২০২৬ আমার-বাজার ই-কমার্স। সর্বস্বত্ব সংরক্ষিত।</p>
+    </footer>
+
+</body>
+</html>
